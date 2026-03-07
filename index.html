@@ -933,7 +933,7 @@
           <div class="sf-grid">
             <div class="sf-field sf-full">
               <label>Shipping address <span class="sf-req">*</span></label>
-              <input class="sf-input" name="address" id="addr1" placeholder="Start typing your address..." autocomplete="new-address">
+              <input class="sf-input" name="address" id="addr1" placeholder="Start typing your address..." autocomplete="off" readonly onfocus="this.removeAttribute('readonly');">
               <div class="sf-note">Start typing to see address suggestions from Google Maps, or type manually. Shipping is paid by the customer.</div>
             </div>
             <div class="sf-field">
