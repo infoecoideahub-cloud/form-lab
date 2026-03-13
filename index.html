@@ -216,6 +216,8 @@
   
   
 
+	<!-- Google reCAPTCHA v3 -->
+<script src="https://www.google.com/recaptcha/api.js?render=6LcG0ogsAAAAAFmYoiewNCuePruVhpO1U_fFT7LC"></script>
 </head>
 <body>
   
@@ -1256,6 +1258,8 @@
             <div class="sf-note sf-full">By clicking Submit, you confirm your specs. If a file is corrupted/unprintable, we'll contact you.</div>
 
             <div class="sf-actions sf-full" style="margin-top:14px;">
+				<!-- reCAPTCHA v3 Token -->
+<input type="hidden" name="g-recaptcha-response" id="recaptchaResponse">
               <button class="sf-btnSecondary" type="button" id="back3">← Back</button>
               <button class="sf-btn" type="submit" id="submitBtn" disabled="">Submit Order →</button>
             </div>
@@ -2307,5 +2311,20 @@ window.initPlaces = function(){
   <script src="assets/embla/embla.min.js"></script>
   <script src="assets/embla/script.js"></script>
   <script src="assets/theme/js/script.js"></script>
+	<!-- Google reCAPTCHA v3 - Anti-Spam Protection -->
+<script>
+grecaptcha.ready(function() {
+    const form = document.querySelector('form[action*="usebasin.com"]');
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            grecaptcha.execute('6LcG0ogsAAAAAFmYoiewNCuePruVhpO1U_fFT7LC', {action: 'submit'}).then(function(token) {
+                document.getElementById('recaptchaResponse').value = token;
+                form.submit();
+            });
+        });
+    }
+});
+</script>
   </body>
 </html>
